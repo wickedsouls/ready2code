@@ -6,15 +6,13 @@ import morgan from 'morgan';
 import path from 'path';
 import Loadable from 'react-loadable';
 import cookieParser from 'cookie-parser';
-require('dotenv').config();
-
 
 // Our loader - this basically acts as the entry point for each page load
 import loader from './loader';
 
 // Create our express app using the port optionally specified
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 3000;
 
 
 
@@ -26,15 +24,16 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Set up homepage, static assets, and capture everything else
+app.use(express.Router()
+    .get('/logo', (req,res)=>{
+      res.sendFile(path.resolve(__dirname, '../public/logo.png'))
+    })
+    .get('/og-logo', (req,res)=>{
+      res.sendFile(path.resolve(__dirname, '../public/logo.jpg'))
+    })
+    .get('/', loader));
 app.use(express.static(path.resolve(__dirname, '../build')));
 app.use(express.static(path.resolve(__dirname, '../public')));
-app.get('/logo', (req,res)=>{
-  res.sendFile(path.resolve(__dirname, '../public/logo.png'))
-});
-app.get('/og-logo', (req,res)=>{
-  res.sendFile(path.resolve(__dirname, '../public/logo.jpg'))
-});
-app.use(express.Router().get('/', loader));
 app.use(loader);
 
 // We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
