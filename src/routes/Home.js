@@ -15,7 +15,7 @@ class Home extends React.Component{
 
     return (
 
-        <Page title="[ready2code]" description="Programavimo kursai pradedantiesiems ir pažengusiems. HTML, CSS, JavaScript, React.js, Node.js, PHP, WordPress" className="Home-page" id="homepage">
+        <Page className="Home-page" id="homepage">
           {this.state.show && <Schema/>}
           <div className="title">
             <div className="border border-left"/>
