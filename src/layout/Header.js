@@ -29,6 +29,7 @@ class Header extends React.Component {
   };
   toggleMenu = () => {
     document.body.classList.toggle("no-scroll");
+    console.log(5678);
     this.setState((prevState) => {
       return {showMenu: !prevState.showMenu}
     })
@@ -78,7 +79,7 @@ class Header extends React.Component {
             <div className="bar"/>
           </div>
           <nav>
-            <ul id="links">
+            <ul id="links"  className={this.state.showMenu ? "active-menu" : null}>
               {links.map((link, index) => {
                 return <HeaderLink key={index} current={current} {...link} />;
               })}
