@@ -6,6 +6,8 @@ import morgan from 'morgan';
 import path from 'path';
 import Loadable from 'react-loadable';
 import cookieParser from 'cookie-parser';
+require('dotenv').config();
+
 
 // Our loader - this basically acts as the entry point for each page load
 import loader from './loader';
