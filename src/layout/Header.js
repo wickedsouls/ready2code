@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import LogoSchema from './schemas/LogoSchema';
 import MenuSchema from './schemas/MenuSchema';
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/logo3.jpg';
 
 const links = [
   {
