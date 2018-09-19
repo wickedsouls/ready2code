@@ -1,0 +1,210 @@
+.Home-page {
+    h1 {
+        color: #000;
+        font-size: 65px;
+        position: relative;
+        font-weight: 700;
+        z-index:2;
+        opacity:0;
+        animation: 1s titleEnter forwards;
+        animation-delay: 1s;
+        span{
+            display: inline-block;
+        }
+    }
+
+    .title{
+        position: absolute;
+        top:50%;
+        left:50%;
+        padding:20px 0;
+        transform: translate3d(-50%, -50%,0);
+        width:350px;
+        text-align: left;
+        @media (max-width: 700px){
+            transform: translate3d(-65%, -50%,0) scale(.9);
+
+        }
+        @media (max-width: 600px){
+            transform: translate3d(-60%, -50%,0) scale(.75);
+
+        }
+        @media (max-width: 450px){
+            transform: translate3d(-60%, -50%,0) scale(.65);
+
+        }
+        @media (max-width: 400px){
+            transform: translate3d(-60%, -50%,0) scale(.6);
+
+        }
+        @media (max-width: 350px) {
+            transform: translate3d(-57%, -50%,0) scale(.55);
+
+        }
+        .border{
+            z-index:-1;
+            opacity:0;
+            position: absolute;
+            top:0;
+            height:100%;
+            width:6px;
+            background: $decoration-color;
+
+            &:after, &:before{
+                content: '';
+                position: absolute;
+                width:25px;
+                height:6px;
+                background: $decoration-color;
+            }
+        }
+        .border-left{
+            left:50px;
+            opacity:0;
+            animation:borderLeftEnter 1.5s forwards;
+            animation-delay: 1s;
+            &:after{
+                left:0;
+                top:0;
+            }
+            &:before{
+                left:0;
+                bottom:0;
+            }
+        }
+        .border-right{
+            right:100px;
+            opacity:0;
+            animation:borderRightEnter 1.5s forwards;
+            animation-delay: 1s;
+            &:after{
+                right:0;
+                top:0;
+            }
+            &:before{
+                right:0;
+                bottom:0;
+            }
+        }
+    }
+
+    &.fade-exit-active{
+        .title .border-left{
+            animation: 1s borderLeftExit forwards;
+        }
+        .title .border-right{
+            animation: 1s borderRightExit forwards;
+        }
+        .title h1{
+            animation: 1s titleExit forwards;
+        }
+    }
+    @keyframes borderLeftEnter {
+        0%{
+            left:100px;
+            opacity:1;
+        }
+        30%{
+            left:100px;
+            opacity:1;
+        }
+        60%{
+            left:50px;
+            opacity:1;
+        }
+        100%{
+            left:50px;
+            opacity:1;
+        }
+    }
+    @keyframes borderRightEnter {
+        0%{
+            right:100px;
+            opacity:1;
+        }
+        30%{
+            right:100px;
+            opacity:1;
+        }
+        60%{
+            right:-30px;
+            opacity:1;
+        }
+        100%{
+            right:-30px;
+            opacity:1;
+        }
+    }
+    @keyframes borderLeftExit {
+        0%{
+            left:0;
+            opacity:1;
+        }
+        30%{
+            left:-30px;
+            opacity:1;
+        }
+        60%{
+            left:-30px;
+            opacity:1;
+        }
+        90%{
+            left:100px;
+            opacity:1;
+        }
+        100%{
+            left:100px;
+            opacity:0;
+        }
+    }
+    @keyframes borderRightExit {
+        0%{
+            right:-30px;
+            opacity:1;
+        }
+        30%{
+            right:-120px;
+            opacity:1;
+        }
+        60%{
+            right:-120px;
+            opacity:1;
+        }
+        90%{
+            right:120px;
+            opacity:1;
+        }
+        100%{
+            right:120px;
+            opacity:0;
+        }
+    }
+    @keyframes titleEnter {
+        0%{
+            opacity:0;
+        }
+        30%{
+            opacity:0;
+        }
+        60%{
+            opacity:1;
+        }
+        100%{
+            opacity:1;
+        }
+    }
+    @keyframes titleExit {
+        0%{
+            opacity:1;
+        }
+        30%{
+            opacity:1;
+        }
+        60%{
+            opacity:0;
+        }
+        100%{
+            opacity:0;
+        }
+    }
+}

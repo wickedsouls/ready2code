@@ -1,0 +1,25 @@
+@import "/base/reset";
+@import "/base/fonts";
+
+@import "/utils/vars";
+@import "/utils/general";
+@import "/utils/mixins";
+@import "/utils/animations";
+@import "/utils/media";
+
+@import "components/glitch";
+@import "components/cookies";
+
+@import "layout/header";
+@import "layout/social";
+@import "layout/background";
+@import "layout/schemas";
+
+@import "pages/home";
+@import "pages/contacts";
+@import "pages/news-list";
+@import "pages/news-single";
+@import "pages/about";
+@import "pages/about-inner-page";
+@import "pages/programs";
+@import "pages/single-program";
