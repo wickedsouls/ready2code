@@ -119,7 +119,7 @@ class Start extends React.Component {
             </h3>
             <h3><span className="underline">Kaina: 165 €/mėn</span></h3>
             <p className="offset">
-              <i>Artimiausias kursas: <b>2018-10-31</b></i>
+              <i>Artimiausias kursas: <b>2018-10-08</b></i>
               <br/>
               Registracija:
               <br/>
