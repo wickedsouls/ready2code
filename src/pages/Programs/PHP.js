@@ -3,23 +3,59 @@ import php from '../../assets/img/php-1.png'
 import wp from '../../assets/img/wp.png'
 import Schema from '../../layout/schemas/ProgramsSingleSchema';
 import Page from '../../layout/Page';
+import Aux from '../../components/Aux';
+import Popup from '../../components/Popup';
 
 class Start extends React.Component {
   state = {
-    show: false
+    showPopup: false,
+    showSchema: false,
+    seen: false,
+    send: false,
+    type: 'php'
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({show: true})
-    }, 1000)
+    const submitTime = localStorage.getItem(this.state.type);
+    if (submitTime && parseInt(Date.now()) < (parseInt(submitTime))) {
+      console.log(parseInt(Date.now()), (parseInt(submitTime)));
+      this.setState({send:true, seen:true})
+    }
+    document.addEventListener('keydown', this.hidePopup);
+    this.setState({showSchema: true});
+    // setTimeout(() => {
+    //   if (!this.state.seen) this.setState({showPopup: true})
+    // }, 3000)
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.hidePopup)
+  }
+
+  hidePopup = (e) => {
+    if (e === 'success') {
+      this.setState({showPopup: false, seen: true, send: true})
+    } else if (e.keyCode === 27 || e.type === 'click' || e === 'success') {
+      this.setState({showPopup: false, seen: true})
+    }
+  };
+  showPopup = () => {
+    this.setState({showPopup: true, seen: true})
+  };
 
   render() {
 
     return (
+        <Aux>
+          <Popup
+              heading="PHP Kursas"
+              text="Registruokis ar gauk daugiau informacijos"
+              type={this.state.type}
+              show={this.state.showPopup}
+              hidePopup={this.hidePopup}
+          />
         <Page id="php" title="[PHP]" description="PHP, WordPress kursas" className="Program PHP">
-          {this.state.show && <Schema/>}
+          {this.state.showSchema && <Schema/>}
           <div className="container">
             <h1>Internetinių svetainių ir  <span>parduotuvių kursas</span></h1>
             <br/>
@@ -71,12 +107,17 @@ class Start extends React.Component {
               <br/>
               Registracija:
               <br/>
-              <b className=""><a href="tel:+370 647 01234">+370 647 01234</a></b>
-              <br/>
-              <b><a href="mailto:info@ready2code.lt">info@ready2code.lt</a></b>
+              {!this.state.send &&
+              <button
+                  onClick={this.showPopup}
+                  className="register">
+                Registracija ir klausimai
+              </button>
+              }
             </p>
           </div>
         </Page>
+        </Aux>
     );
   }
 }

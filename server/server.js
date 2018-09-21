@@ -1,4 +1,5 @@
 // Express requirements
+import axios from 'axios';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import express from 'express';
@@ -27,6 +28,27 @@ app.use(cookieParser());
 
 // Set up homepage, static assets, and capture everything else
 app.use(express.Router()
+    .post('/register',async(req,res)=>{
+      // const url = 'https://docs.google.com/forms/d/e/1FAIpQLSe3kqe7zS_4fK1hLlEA4XljQ-8EGBNPjJ8uOPr3bomXU0w0Pw/formResponsex';
+      // axios({
+      //   method: 'post',
+      //   url,
+      //   withCredentials: true,
+      //   data: {'entry.564309517': 'no way'},
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //     "Cache-Control": "no-cache",
+      //   }
+      // });
+      console.log(56789);
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSe3kqe7zS_4fK1hLlEA4XljQ-8EGBNPjJ8uOPr3bomXU0w0Pw/formResponse';
+      axios.post(
+          url,
+          JSON.stringify({'entry.564309517': 'sssdt'}),
+          {headers: {'Content-type': 'application/x-www-form-urlencoded'}}
+      );
+      res.send('ok')
+    })
     .get('/logo', (req,res)=>{
       res.sendFile(path.resolve(__dirname, '../public/logo.png'))
     })

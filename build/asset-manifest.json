@@ -1,12 +1,12 @@
 {
-  "about.js": "static/js/about.323b7de5.chunk.js",
-  "about.js.map": "static/js/about.323b7de5.chunk.js.map",
-  "homepage.js": "static/js/homepage.299f5879.chunk.js",
-  "homepage.js.map": "static/js/homepage.299f5879.chunk.js.map",
-  "main.css": "static/css/main.dab972be.css",
-  "main.css.map": "static/css/main.dab972be.css.map",
-  "main.js": "static/js/main.3428aff7.js",
-  "main.js.map": "static/js/main.3428aff7.js.map",
+  "about.js": "static/js/about.2d02e4b7.chunk.js",
+  "about.js.map": "static/js/about.2d02e4b7.chunk.js.map",
+  "homepage.js": "static/js/homepage.d35b59b9.chunk.js",
+  "homepage.js.map": "static/js/homepage.d35b59b9.chunk.js.map",
+  "main.css": "static/css/main.3c558b92.css",
+  "main.css.map": "static/css/main.3c558b92.css.map",
+  "main.js": "static/js/main.60ed4619.js",
+  "main.js.map": "static/js/main.60ed4619.js.map",
   "static/media/Montserrat-Black.ttf": "static/media/Montserrat-Black.6d1796a9.ttf",
   "static/media/Montserrat-Bold.ttf": "static/media/Montserrat-Bold.88932dad.ttf",
   "static/media/Montserrat-Light.ttf": "static/media/Montserrat-Light.100b38fa.ttf",
@@ -26,5 +26,6 @@
   "static/media/nodejs.png": "static/media/nodejs.4cac309e.png",
   "static/media/php-1.png": "static/media/php-1.d094d114.png",
   "static/media/react.png": "static/media/react.fc271b31.png",
+  "static/media/times-solid.svg": "static/media/times-solid.664329db.svg",
   "static/media/wp.png": "static/media/wp.73cd071b.png"
 }

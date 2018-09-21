@@ -12,15 +12,15 @@ class Start extends React.Component {
     showPopup: false,
     showSchema: false,
     seen: false,
-    sent: false,
+    send: false,
     type: 'start'
   };
 
   componentDidMount() {
     const submitTime = localStorage.getItem(this.state.type);
-    console.log(Date.now(), submitTime);
-    if (submitTime && Date.now() > (parseInt(submitTime) + 1000 * 10)) {
-      // this.setState({send:true, seen:true})
+    if (submitTime && parseInt(Date.now()) < (parseInt(submitTime))) {
+      console.log(parseInt(Date.now()), (parseInt(submitTime)));
+      this.setState({send:true, seen:true})
     }
     document.addEventListener('keydown', this.hidePopup);
     this.setState({showSchema: true});
@@ -35,7 +35,7 @@ class Start extends React.Component {
 
   hidePopup = (e) => {
     if (e === 'success') {
-      this.setState({showPopup: false, seen: true, sent: true})
+      this.setState({showPopup: false, seen: true, send: true})
     } else if (e.keyCode === 27 || e.type === 'click' || e === 'success') {
       this.setState({showPopup: false, seen: true})
     }
@@ -48,13 +48,13 @@ class Start extends React.Component {
 
     return (
         <Aux>
-          {/*<Popup*/}
-              {/*heading="Artimiausias kursas spalio 8d!"*/}
-              {/*text="Registruokis ar gauk daugiau informacijos"*/}
-              {/*type={this.state.type}*/}
-              {/*show={this.state.showPopup}*/}
-              {/*hidePopup={this.hidePopup}*/}
-          {/*/>*/}
+          <Popup
+              heading="Artimiausias kursas spalio 8d!"
+              text="Registruokis ar gauk daugiau informacijos"
+              type={this.state.type}
+              show={this.state.showPopup}
+              hidePopup={this.hidePopup}
+          />
           <Page id="pagrindai" title="[programavimo pagrindai]"
                 description="Programavimo pagrindai: HTML, CSS, JavaScript" className="Program Start">
             {this.state.showSchema && <Schema/>}
@@ -159,13 +159,13 @@ class Start extends React.Component {
               <h3><span className="underline">Kaina: 165 €/mėn</span></h3>
               <p className="offset">
                 <i>Artimiausias kursas: <b>2018-10-08</b></i>
-                {/*{!this.state.sent &&*/}
-                {/*<button*/}
-                    {/*onClick={this.showPopup}*/}
-                    {/*className="register">*/}
-                  {/*Registruotis!*/}
-                {/*</button>*/}
-                {/*}*/}
+                {!this.state.send &&
+                <button
+                    onClick={this.showPopup}
+                    className="register">
+                  Registracija ir klausimai
+                </button>
+                }
               </p>
             </div>
           </Page>

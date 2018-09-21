@@ -3,24 +3,60 @@ import node from '../../assets/img/nodejs.png'
 import mongo from '../../assets/img/mongods.png'
 import Schema from '../../layout/schemas/ProgramsSingleSchema';
 import Page from '../../layout/Page';
+import Aux from '../../components/Aux';
+import Popup from '../../components/Popup';
 
 class Start extends React.Component {
   state = {
-    show: false
+    showPopup: false,
+    showSchema: false,
+    seen: false,
+    send: false,
+    type: 'node'
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({show: true})
-    }, 1000)
+    const submitTime = localStorage.getItem(this.state.type);
+    if (submitTime && parseInt(Date.now()) < (parseInt(submitTime))) {
+      console.log(parseInt(Date.now()), (parseInt(submitTime)));
+      this.setState({send:true, seen:true})
+    }
+    document.addEventListener('keydown', this.hidePopup);
+    this.setState({showSchema: true});
+    // setTimeout(() => {
+    //   if (!this.state.seen) this.setState({showPopup: true})
+    // }, 3000)
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.hidePopup)
+  }
+
+  hidePopup = (e) => {
+    if (e === 'success') {
+      this.setState({showPopup: false, seen: true, send: true})
+    } else if (e.keyCode === 27 || e.type === 'click' || e === 'success') {
+      this.setState({showPopup: false, seen: true})
+    }
+  };
+  showPopup = () => {
+    this.setState({showPopup: true, seen: true})
+  };
 
   render() {
 
     return (
+        <Aux>
+          <Popup
+              heading="Node.js Kursas"
+              text="Registruokis ar gauk daugiau informacijos"
+              type={this.state.type}
+              show={this.state.showPopup}
+              hidePopup={this.hidePopup}
+          />
         <Page id="node" className="Program Node" description="Node.js kursas" title="[node.js]">
 
-          {this.state.show && <Schema/>}
+          {this.state.showSchema && <Schema/>}
           <div className="container">
             <h1>Serverių ir duomenų bazių <span>konfiguravimas</span></h1>
             <br/>
@@ -79,15 +115,18 @@ class Start extends React.Component {
             <h3><span className="underline">Kaina: 195€/mėn</span></h3>
             <p className="offset">
               {/*<i>Artimiausias kursas: <b>2018-09-24</b></i>*/}
-              <br/>
-              Registracija:
-              <br/>
-              <b className=""><a href="tel:+370 647 01234">+370 647 01234</a></b>
-              <br/>
-              <b><a href="mailto:info@ready2code.lt">info@ready2code.lt</a></b>
+
+              {!this.state.send &&
+              <button
+                  onClick={this.showPopup}
+                  className="register">
+                Registracija ir klausimai
+              </button>
+              }
             </p>
           </div>
         </Page>
+        </Aux>
     );
   }
 }
