@@ -9,23 +9,55 @@ import Aux from '../../components/Aux';
 
 class Start extends React.Component {
   state = {
-    show: false
+    showPopup: false,
+    showSchema: false,
+    seen: false,
+    sent: false,
+    type: 'start'
   };
 
   componentDidMount() {
+    const submitTime = localStorage.getItem(this.state.type);
+    console.log(Date.now(), submitTime);
+    if (submitTime && Date.now() > (parseInt(submitTime) + 1000 * 10)) {
+      // this.setState({send:true, seen:true})
+    }
+    document.addEventListener('keydown', this.hidePopup);
+    this.setState({showSchema: true});
     setTimeout(() => {
-      this.setState({show: true})
-    }, 1000)
+      if (!this.state.seen) this.setState({showPopup: true})
+    }, 3000)
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.hidePopup)
+  }
+
+  hidePopup = (e) => {
+    if (e === 'success') {
+      this.setState({showPopup: false, seen: true, sent: true})
+    } else if (e.keyCode === 27 || e.type === 'click' || e === 'success') {
+      this.setState({showPopup: false, seen: true})
+    }
+  };
+  showPopup = () => {
+    this.setState({showPopup: true, seen: true})
+  };
 
   render() {
 
     return (
         <Aux>
-          <Popup/>
+          <Popup
+              heading="Artimiausias kursas spalio 8d!"
+              text="Registruokis ar gauk daugiau informacijos"
+              type={this.state.type}
+              show={this.state.showPopup}
+              hidePopup={this.hidePopup}
+          />
           <Page id="pagrindai" title="[programavimo pagrindai]"
                 description="Programavimo pagrindai: HTML, CSS, JavaScript" className="Program Start">
-            {this.state.show && <Schema/>}
+            {this.state.showSchema && <Schema/>}
             <div className="container">
               <h1>Programavimo <span>pagrindai</span></h1>
               <br/>
@@ -126,13 +158,14 @@ class Start extends React.Component {
               </h3>
               <h3><span className="underline">Kaina: 165 €/mėn</span></h3>
               <p className="offset">
-                <i>Artimiausias kursas: <b>2018-10-08d</b></i>
-                <br/>
-                Registracija:
-                <br/>
-                <b className=""><a href="tel:+370 647 01234">+370 647 01234</a></b>
-                <br/>
-                <b><a href="mailto:info@ready2code.lt">info@ready2code.lt</a></b>
+                <i>Artimiausias kursas: <b>2018-10-08</b></i>
+                {!this.state.sent &&
+                <button
+                    onClick={this.showPopup}
+                    className="register">
+                  Registruotis!
+                </button>
+                }
               </p>
             </div>
           </Page>
