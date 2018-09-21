@@ -1,0 +1,61 @@
+.popup{
+    position: fixed;
+    width:50%;
+    top:-50%;
+    left:50%;
+    transition: .5s;
+    max-width: 400px;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index:250;
+    padding: 0 20px;
+    h2{
+        font-size:24px;
+        margin:20px auto;
+        font-weight:500;
+    }
+    p{
+        margin: 20px auto;
+        background: $decoration-color;
+        color: #fff;
+        padding:6px 20px;
+        display: inline-block;
+        transform: rotate(4deg)
+    }
+    input{
+        display: block;
+        width:90%;
+        margin:10px auto;
+        line-height:30px;
+        height:30px;
+        font-size:18px;
+        box-sizing: border-box;
+        padding-left:4px;
+        &::placeholder{
+            font-weight:300;
+        }
+        &:focus{
+            outline-color: $decoration-color;
+        }
+        &[name='name']{
+            text-transform: capitalize;
+        }
+    }
+    button{
+        width:90%;
+        background: $decoration-color;
+        color: #fff;
+        font-size:18px;
+        margin:20px auto;
+        padding:5px 0;
+        border:none;
+        outline: none;
+    }
+}
+.backdrop{
+    position: fixed;
+    width:100%;
+    height:100%;
+    z-index:200;
+    background: rgba(0,0,0,.4);
+}

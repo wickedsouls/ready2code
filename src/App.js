@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 
 import Header from './layout/Header';
 import Social from './layout/Social';
-import Routes from './routes/Routes';
+import Routes from './pages/Routes';
 
 
 class App extends Component {
