@@ -159,13 +159,13 @@ class Start extends React.Component {
               <h3><span className="underline">Kaina: 165 €/mėn</span></h3>
               <p className="offset">
                 <i>Artimiausias kursas: <b>2018-10-08</b></i>
-                {!this.state.sent &&
-                <button
-                    onClick={this.showPopup}
-                    className="register">
-                  Registruotis!
-                </button>
-                }
+                {/*{!this.state.sent &&*/}
+                {/*<button*/}
+                    {/*onClick={this.showPopup}*/}
+                    {/*className="register">*/}
+                  {/*Registruotis!*/}
+                {/*</button>*/}
+                {/*}*/}
               </p>
             </div>
           </Page>
