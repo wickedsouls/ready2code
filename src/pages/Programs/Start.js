@@ -48,13 +48,13 @@ class Start extends React.Component {
 
     return (
         <Aux>
-          <Popup
-              heading="Artimiausias kursas spalio 8d!"
-              text="Registruokis ar gauk daugiau informacijos"
-              type={this.state.type}
-              show={this.state.showPopup}
-              hidePopup={this.hidePopup}
-          />
+          {/*<Popup*/}
+              {/*heading="Artimiausias kursas spalio 8d!"*/}
+              {/*text="Registruokis ar gauk daugiau informacijos"*/}
+              {/*type={this.state.type}*/}
+              {/*show={this.state.showPopup}*/}
+              {/*hidePopup={this.hidePopup}*/}
+          {/*/>*/}
           <Page id="pagrindai" title="[programavimo pagrindai]"
                 description="Programavimo pagrindai: HTML, CSS, JavaScript" className="Program Start">
             {this.state.showSchema && <Schema/>}
