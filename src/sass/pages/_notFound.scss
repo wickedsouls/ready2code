@@ -1,0 +1,12 @@
+.NotFound{
+    p{
+        position: absolute;
+        top:45vh;
+        left:50%;
+        transform: translateX(-50%);
+        font-size:40px;
+        font-weight:600;
+        letter-spacing: 3px;
+        color: $decoration-color;
+    }
+}

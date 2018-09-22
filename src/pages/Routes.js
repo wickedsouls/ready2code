@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
-// import NotFound from './NotFound';
+import NotFound from './NotFound';
 
 const Home = Loadable({
   loader: () => import(/* webpackChunkName: "homepage" */ './Home'),
@@ -76,6 +76,11 @@ const NewsSingle = Loadable({
   loading: () => null,
   modules: ['news-single']
 });
+const Registration = Loadable({
+  loader: () => import(/* webpackChunkName: "about" */ './Registration'),
+  loading: () => null,
+  modules: ['registration']
+});
 
 
 export default () => (
@@ -97,7 +102,8 @@ export default () => (
               <Route path="/programos/php" component={PHP}/>
               <Route path="/programos/praktika-darbas" component={Work}/>
               <Route path="/kontaktai" component={Contacts}/>
-              {/*<Route component={NotFound} />*/}
+              <Route path="/registracija" component={Registration}/>
+              <Route component={NotFound} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

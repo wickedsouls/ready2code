@@ -7,7 +7,8 @@ export default () => (
     title="Not Found"
     description="This is embarrassing."
     noCrawl
+    className="NotFound"
   >
-    <p>Super embarrassing.</p>
+    <p>404</p>
   </Page>
 );

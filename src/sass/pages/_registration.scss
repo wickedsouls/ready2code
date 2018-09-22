@@ -1,0 +1,105 @@
+
+.Registration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    margin-bottom: 50px;
+    .container {
+        opacity: 0;
+        transition: 1s;
+        margin: auto;
+        padding: 30px;
+        margin-top: 70px;
+        position: relative;
+        animation: showContent .6s forwards;
+        animation-delay: 1s;
+        width: 65%;
+        @media (max-width: 900px) {
+            margin-left:120px;
+        }
+        @include tablet{
+            margin-left:7%;
+            width:85%;
+            margin-top:150px;
+            padding:0;
+        }
+
+    }
+    h2{
+        font-size:30px;
+        margin-top: 30vh;
+        span{
+        margin-top:10px;
+        font-size:24px;
+            color: #fff;
+            background: $decoration-color;
+            padding:5px 10px;
+            display: inline-block;
+        }
+        @include mobile{
+            margin-top:20vh;
+        }
+    }
+    h1 {
+        margin: 20px auto;
+        background: $decoration-color;
+        color: #fff;
+        padding:10px 20px;
+        display: inline-block;
+        transform: rotate(4deg);
+        transition: .2s;
+        box-shadow: 2px 3px 10px grey;
+        &:hover{
+            transform: translateY(1px) rotate(4deg);
+            box-shadow: 1px 1px 10px grey;
+        }
+    }
+    form{
+        margin: auto;
+        max-width:400px;
+    }
+    input{
+        display: block;
+        width:90%;
+        border:1px solid #bbb;
+        margin:10px auto;
+        line-height:30px;
+        height:30px;
+        font-size:18px;
+        box-sizing: border-box;
+        padding-left:4px;
+        &::placeholder{
+            font-weight:300;
+        }
+        &:focus{
+            outline-color: $decoration-color;
+        }
+        &[name='name']{
+            text-transform: capitalize;
+        }
+    }
+    button.register{
+        background: $decoration-color;
+        color: #fff;
+        width:90%;
+        margin: auto;
+        margin-top:15px;
+        padding:6px 20px;
+        display: block;
+        border:none;
+        font-size:20px;
+        outline: none;
+        margin-bottom:20px;
+        cursor: pointer;
+
+    }
+
+
+    &.fade-exit-active {
+        .container {
+            animation: hideContent .6s forwards;
+        }
+    }
+}
