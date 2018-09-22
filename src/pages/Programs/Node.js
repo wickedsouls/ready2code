@@ -120,8 +120,7 @@ class Start extends React.Component {
               <button
                   onClick={this.showPopup}
                   className="register">
-                Registracija ir klausimai
-              </button>
+                Registracija              </button>
               }
             </p>
           </div>
