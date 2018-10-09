@@ -51,7 +51,7 @@ class Teachers extends React.Component {
             </p>
             <p>
               Studijuoti programavimo kalbas savarankiškai, tikrai sunkus ir ilgas procesas. Kelias buvo banguotas -
-              nežinai kokią kalbą pasirinkti, į kokią sritį specializuotis, kaip pirmus užsakovus susirasti. Bet ši sritis traukė mane ypač stipriai ir ilgai netruko kai jau pirmus užsakymus gavau. Šiuo metu specializuojuosi į įmonių valdymo sistemų, mobiliųjų ir "web" aplikacijų kūrimą. Teko birbti su tokiomis įmonėmis kaip Bobcat, Kretingos grūdai, ten įdiegti klientų ir gamybos valdymo sistemas.
+              nežinai kokią kalbą pasirinkti, į kokią sritį specializuotis, kaip pirmus užsakovus susirasti. Bet ši sritis traukė mane ypač stipriai ir ilgai netruko kai jau pirmus užsakymus gavau. Šiuo metu specializuojuosi į įmonių valdymo sistemų, mobiliųjų ir "web" aplikacijų kūrimą. Teko dirbti su tokiomis įmonėmis kaip Bobcat, Kretingos grūdai, ten įdiegti klientų ir gamybos valdymo sistemas.
             </p>
             <p>
               Laikui bėgant atsirado galimybė savo žiniomis pasidalinti ir su kitais. Tad paskutinius porą metų dėsčiau

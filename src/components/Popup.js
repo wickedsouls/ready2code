@@ -86,7 +86,7 @@ class Popup extends React.Component {
                       placeholder="Tel. nr."/>
                   <textarea name="message" cols="30" rows="10" value={this.state.message} onChange={this.onInputChange}
                             placeholder="Žinutė"/>
-                  <button onClick={this.register}>Siūsti</button>
+                  <button onClick={this.register}>Siųsti</button>
                 </Aux>
             }
           </div>
