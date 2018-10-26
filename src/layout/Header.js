@@ -6,8 +6,8 @@ import logo from '../assets/img/logo3.jpg';
 
 const links = [
   {
-    to: '/apie-mus',
-    text: 'Apie.Mus'
+    to: '/apie-mane',
+    text: 'Apie Mane'
   },
   {
     to: '/programos',

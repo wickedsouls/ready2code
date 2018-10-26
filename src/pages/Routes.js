@@ -89,7 +89,7 @@ export default () => (
           <CSSTransition timeout={{enter: 1500, exit: 1000}} key={location.pathname} classNames="fade">
             <Switch location={location}>
               <Route path="/" exact component={Home}/>
-              <Route exact path="/apie-mus" component={About}/>
+              <Route exact path="/apie-mane" component={Teachers}/>
               <Route path="/mokykla" component={Studies}/>
               <Route path="/karjeros-galimybes" component={Career}/>
               <Route path="/destytojai" component={Teachers}/>
